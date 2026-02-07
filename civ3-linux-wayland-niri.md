@@ -77,20 +77,33 @@ rm temp.exe
 
 The installer backs up the original exe as `Civ3Conquests-Unmodded.exe` and patches `Civ3Conquests.exe` with C3X.
 
-## Final Configuration
+## Working Modes
+
+Both modes require C3X installed and `KeepRes=1` in `conquests.ini`.
+
+### 4K Windowed (no gamescope)
+
+No Steam launch options needed. With `KeepRes=1`, the game runs at native 4K (3840x2160) in a window through XWayland. This works but the UI becomes very small and hard to read.
+
+### 1080p Fullscreen (with gamescope) -- Recommended
 
 **Steam Launch Options:**
 ```
 gamescope -W 1920 -H 1080 -w 1920 -h 1080 -f -- %command%
 ```
 
-**conquests.ini:**
+Gamescope provides a nested compositor so the game gets proper fullscreen at 1080p. The UI is readable and the game fills the screen. Without gamescope, fullscreen is a black screen due to DirectDraw/XWayland limitations on Niri.
+
+### conquests.ini
+
 ```ini
 [Conquests]
 KeepRes=1
 ```
 
-**C3X:** Installed via INSTALL.bat/TCC (permanent exe patch)
+### C3X
+
+Installed via INSTALL.bat/TCC (permanent exe patch)
 
 ## References
 
